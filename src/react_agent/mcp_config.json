@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "desktop-commander": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@wonderwhy-er/desktop-commander",
+        "--key",
+        "f87642b4-ae7d-4628-8ef2-efe1d82f959b"
+      ]
+    },
+    "todoist-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@abhiz123/todoist-mcp-server",
+        "--key",
+        "f87642b4-ae7d-4628-8ef2-efe1d82f959b",
+        "--profile",
+        "marvellous-dove-qbSo92"
+      ]
+    },
+    "qdrant-mcp-server": {
+      "command": "uvx",
+      "args": ["mcp-server-qdrant", "--transport", "stdio"],
+      "env": {
+        "QDRANT_URL": "http://localhost:6333",
+        "COLLECTION_NAME": "code-snippets",
+        "EMBEDDING_MODEL": "sentence-transformers/all-MiniLM-L6-v2",
+        "TOOL_STORE_DESCRIPTION": "Store reusable code snippets for later retrieval. The 'information' parameter should contain a natural language description of what the code does, while the actual code should be included in the 'metadata' parameter as a 'code' property. The value of 'metadata' is a Python dictionary with strings as keys. Use this whenever you generate some code snippet.",
+        "TOOL_FIND_DESCRIPTION": "Search for relevant code snippets based on natural language descriptions. The 'query' parameter should describe what you're looking for, and the tool will return the most relevant code snippets. Use this when you need to find existing code snippets for reuse or reference."
+      },
+      "transport": "stdio"
+    }
+  }
+}
