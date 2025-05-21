@@ -29,10 +29,12 @@
       "args": ["mcp-server-qdrant", "--transport", "stdio"],
       "env": {
         "QDRANT_URL": "http://localhost:6333",
-        "COLLECTION_NAME": "code-snippets",
+        "COLLECTION_NAME": "my-collection",
         "EMBEDDING_MODEL": "sentence-transformers/all-MiniLM-L6-v2",
-        "TOOL_STORE_DESCRIPTION": "Store reusable code snippets for later retrieval. The 'information' parameter should contain a natural language description of what the code does, while the actual code should be included in the 'metadata' parameter as a 'code' property. The value of 'metadata' is a Python dictionary with strings as keys. Use this whenever you generate some code snippet.",
-        "TOOL_FIND_DESCRIPTION": "Search for relevant code snippets based on natural language descriptions. The 'query' parameter should describe what you're looking for, and the tool will return the most relevant code snippets. Use this when you need to find existing code snippets for reuse or reference."
+        "VECTOR_NAME": "all-MiniLM-L6-v2",
+        "DOCUMENT_FIELD": "content",
+        "TOOL_STORE_DESCRIPTION": "Store any type of information for later retrieval. The 'information' parameter should contain the main content, and additional metadata can be included in the 'metadata' parameter as a dictionary.",
+        "TOOL_FIND_DESCRIPTION": "Search for relevant information based on your query. The 'query' parameter should describe what you're looking for, and the tool will return the most relevant content from the database."
       },
       "transport": "stdio"
     }

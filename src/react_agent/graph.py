@@ -26,7 +26,7 @@ async def make_graph(mcp_tools: Dict[str, Dict[str, str]]):
     client = MultiServerMCPClient(mcp_tools)
     tools = await client.get_tools()
     model = ChatAnthropic(
-        model="claude-3-7-sonnet-latest", temperature=0.0, max_tokens=64000
+        model="claude-3-5-haiku-20241022", temperature=0.0, max_tokens=4000
     )
     agent = create_react_agent(model, tools, checkpointer=memory)
     yield agent
